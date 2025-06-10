@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -71,11 +72,7 @@ function Map({ data }: { data: IpApiResponse }) {
       // Add new marker
       L.marker([data.latitude, data.longitude])
         .addTo(mapRef.current)
-        .bindPopup(
-          `${data.city || ""}, ${data.region_name || ""}, ${
-            data.country_name || ""
-          }`
-        )
+        .bindPopup(`${data.city || ""}, ${data.country_name || ""}`)
         .openPopup();
     }
 
@@ -98,7 +95,9 @@ function Map({ data }: { data: IpApiResponse }) {
           <MapPin className="w-5 h-5 text-red-600" />
           Location Map
           {countryFlag && (
-            <img
+            <Image
+              width={100}
+              height={100}
               src={countryFlag || "/placeholder.svg"}
               alt={`${data.country_name || "Country"} flag`}
               className="w-6 h-4 object-cover ml-2 rounded-sm shadow-sm"

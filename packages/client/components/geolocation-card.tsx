@@ -38,9 +38,7 @@ function GeolocationCard({ results }: { results: IpApiResponse }) {
         </div>
         <div>
           <p className="text-sm text-slate-500">Location</p>
-          <p className="font-medium text-slate-800">
-            {results.city}, {results.region_name}
-          </p>
+          <p className="font-medium text-slate-800">{results.city}</p>
           <p className="text-slate-600">{results.country_name}</p>
         </div>
         <div>

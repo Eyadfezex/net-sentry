@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from "axios";
 
 // Create axios instance with default config
 const api: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://api.ipapi.com/api",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "https://api.ipapi.com/api",
   headers: {
     "Content-Type": "application/json",
   },

@@ -8,11 +8,34 @@ import { MapPin } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import type { IpApiResponse } from "@/lib/api";
 
-interface MapProps {
-  data: IpApiResponse;
-}
-
-function Map({ data }: MapProps) {
+/**
+ * A component that renders an interactive map using Leaflet.js with location data.
+ *
+ * @component
+ * @param {Object} props - The component props
+ * @param {Object} props.data - Location data object containing geographical information
+ * @param {number} props.data.latitude - The latitude coordinate for the map marker
+ * @param {number} props.data.longitude - The longitude coordinate for the map marker
+ * @param {string} [props.data.city] - The city name to display in marker popup
+ * @param {string} [props.data.region_name] - The region name to display in marker popup
+ * @param {string} [props.data.country_name] - The country name to display in marker popup
+ * @param {Object} [props.data.location] - Additional location information
+ * @param {string} [props.data.location.country_flag] - URL of the country flag image
+ *
+ * @returns {JSX.Element} A card component containing an interactive map with location marker
+ *
+ * @example
+ * ```tsx
+ * <Map data={{
+ *   latitude: 51.505,
+ *   longitude: -0.09,
+ *   city: "London",
+ *   region_name: "England",
+ *   country_name: "United Kingdom"
+ * }} />
+ * ```
+ */
+function Map({ data }: { data: IpApiResponse }) {
   const mapRef = useRef<L.Map | null>(null);
 
   useEffect(() => {

@@ -2,6 +2,24 @@ import { MapPin } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { IpApiResponse } from "@/lib/api";
 
+/**
+ * A card component that displays geolocation information based on IP address data.
+ *
+ * @component
+ * @param {Object} props - The component props
+ * @param {IpApiResponse} props.results - The IP API response data containing geolocation information
+ *
+ * @returns {JSX.Element} A card displaying:
+ * - IP address
+ * - City and region location
+ * - Country name
+ * - Geographic coordinates (latitude/longitude)
+ *
+ * @example
+ * ```tsx
+ * <GeolocationCard results={ipApiData} />
+ * ```
+ */
 function GeolocationCard({ results }: { results: IpApiResponse }) {
   return (
     <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">

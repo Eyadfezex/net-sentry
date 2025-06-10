@@ -13,6 +13,35 @@ const Map = dynamic(() => import("../components/map"), {
 import { useState } from "react";
 import { ipApiGet, IpApiResponse } from "@/lib/api";
 
+/**
+ * Home component that provides IP address tracking and geolocation functionality.
+ *
+ * @component
+ * @returns {JSX.Element} A page with IP tracking capabilities including search, results display, and map visualization
+ *
+ * @example
+ * ```tsx
+ * <Home />
+ * ```
+ *
+ * @remarks
+ * This component manages the following state:
+ * - ipAddress: Current IP address input
+ * - results: Geolocation data from IP lookup
+ * - isLoading: Loading state during API calls
+ * - error: Error messages from validation or API calls
+ *
+ * Features:
+ * - IP address validation for both IPv4 and IPv6
+ * - Geolocation data display
+ * - Interactive map visualization
+ * - Loading states and error handling
+ * - Responsive design with mobile support
+ *
+ * @see {@link SearchForm} For the input form implementation
+ * @see {@link GeolocationCard} For the results display
+ * @see {@link Map} For the map visualization component
+ */
 export default function Home() {
   const [ipAddress, setIpAddress] = useState("");
   const [results, setResults] = useState<IpApiResponse | null>(null);

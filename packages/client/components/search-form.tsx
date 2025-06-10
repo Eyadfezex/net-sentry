@@ -14,6 +14,21 @@ interface SearchFormProps {
   error: string | null;
 }
 
+/**
+ * A form component for IP address searching and tracking functionality.
+ *
+ * @component
+ * @param {Object} props - The component props
+ * @param {string} props.ipAddress - The current IP address value
+ * @param {(value: string) => void} props.setIpAddress - Function to update the IP address value
+ * @param {(e: React.FormEvent) => void} props.handleSubmit - Form submission handler
+ * @param {() => void} props.handleClear - Function to clear the form
+ * @param {boolean} props.isLoading - Loading state indicator
+ * @param {string | null} props.error - Error message to display, if any
+ *
+ * @returns {JSX.Element} A styled form with IP address input, submit and clear buttons,
+ * and error display functionality
+ */
 function SearchForm({
   ipAddress,
   setIpAddress,
